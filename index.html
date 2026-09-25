@@ -43,7 +43,25 @@ html,body{width:100%;height:100%;overflow:hidden;background:#002B5C;font-family:
 var AUTH_KEY = 'COSMOVISION5678432';
 var cv = document.getElementById('radar-canvas');
 var cx = cv.getContext('2d');
-
+var ASTROS = [
+  {n:'Sol',         c:'#FFCC00', s:'☀',  t:'estrella', o:0,   p:0},
+  {n:'Mercurio',    c:'#B8B8B8', s:'☿',  t:'planeta',  o:60,  p:87.969},
+  {n:'Venus',       c:'#FFE9A8', s:'♀',  t:'planeta',  o:95,  p:224.701},
+  {n:'Luna',        c:'#DDDDDD', s:'☾',  t:'satelite', o:130, p:27.321661},
+  {n:'Tierra',      c:'#3B7DD8', s:'♁',  t:'planeta',  o:165, p:365.256},
+  {n:'Marte',       c:'#D94B2B', s:'♂',  t:'planeta',  o:200, p:686.98},
+  {n:'Júpiter',     c:'#D9A066', s:'♃',  t:'planeta',  o:245, p:4332.59},
+  {n:'Saturno',     c:'#E0C97A', s:'♄',  t:'planeta',  o:285, p:10759.2},
+  {n:'Urano',       c:'#7FE0E0', s:'♅',  t:'planeta',  o:320, p:30688.5},
+  {n:'Neptuno',     c:'#4A6FFF', s:'♆',  t:'planeta',  o:350, p:60182},
+  {n:'Plutón',      c:'#C0A080', s:'♇',  t:'planeta',  o:378, p:90560},
+  {n:'Sol Sirio',   c:'#A0D8FF', s:'✦',  t:'estrella', o:410, p:1.0e6},
+  {n:'Sol Alcyone', c:'#88BBFF', s:'✦',  t:'estrella', o:440, p:3.0e6},
+  {n:'Sagitario A*',c:'#00AFFF', s:'⚫', t:'agujero',  o:470, p:1.0e8},
+  {n:'Messier 87',  c:'#9933FF', s:'⚫', t:'agujero',  o:500, p:5.0e8},
+  {n:'Sol Phoenix', c:'#FF007F', s:'⚫', t:'agujero',  o:530, p:1.0e9},
+  {n:'TON 618',     c:'#FFFF00', s:'⚫', t:'agujero',  o:560, p:2.0e10}
+];
 function resize(){
   cv.width = cv.clientWidth;
   cv.height = cv.clientHeight;
