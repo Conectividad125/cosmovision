@@ -71,7 +71,8 @@ cv.height = window.innerHeight;
 window.addEventListener('resize', resize);
 
 function draw(){
- var esc = Math.min(W,H) / 1300;
+ var W = cv.width, H = cv.height;
+  var esc = Math.min(W,H) / 1300;
   var W = cv.width, H = cv.height;
   var CX = W/2, CY = H/2;
 
