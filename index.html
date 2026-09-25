@@ -93,6 +93,7 @@ for(var i=0; i<ASTROS.length; i++){
   cx.stroke();
 var _p = a.p > 0 ? a.p : 1e6;
 var ang = a.p === 0 ? 0 : -(2*Math.PI*(t/86400/_p));
+if(i >= 11) ang += (i - 11) * Math.PI / 3;
  var ax = CX + Math.cos(ang)*a.o; 
   var ay = CY + Math.sin(ang)*a.o;
   cx.beginPath();
