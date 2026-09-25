@@ -74,8 +74,9 @@ function draw(){
 
 document.getElementById('unlock').addEventListener('click', function(){
   var val = document.getElementById('pass').value;
+var val2 = document.getElementById('pass2').value;
   var msg = document.getElementById('msg');
- if(val === AUTH_KEY || val === 'centrogalactico'){
+if(val === AUTH_KEY || val2 === 'centrogalactico'){
     msg.className = 'ok';
     msg.textContent = '✔ Acceso concedido';
     setTimeout(function(){
