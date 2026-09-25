@@ -89,7 +89,7 @@ for(var i=0; i<ASTROS.length; i++){
   var a = ASTROS[i];
   if(a.o === 0){ continue; }
   cx.arc(CX, CY, a.o*esc, 0, Math.PI*2);
-  cx.arc(CX, CY, a.o, 0, Math.PI*2);
+  
   cx.strokeStyle = a.c + '40';
   cx.lineWidth = 1;
   cx.stroke();
