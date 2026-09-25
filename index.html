@@ -71,6 +71,7 @@ cv.height = window.innerHeight;
 window.addEventListener('resize', resize);
 
 function draw(){
+  var esc = Math.min(W,H) / 1300;
   var W = cv.width, H = cv.height;
   var CX = W/2, CY = H/2;
 
@@ -86,7 +87,7 @@ function draw(){
 for(var i=0; i<ASTROS.length; i++){
   var a = ASTROS[i];
   if(a.o === 0){ continue; }
-  cx.beginPath();
+  cx.arc(CX, CY, a.o*esc, 0, Math.PI*2);
   cx.arc(CX, CY, a.o, 0, Math.PI*2);
   cx.strokeStyle = a.c + '40';
   cx.lineWidth = 1;
@@ -94,8 +95,8 @@ for(var i=0; i<ASTROS.length; i++){
 var _p = a.p > 0 ? a.p : 1e6;
 var ang = a.p === 0 ? 0 : -(2*Math.PI*(t/86400/_p));
 if(i >= 11) ang += (i - 11) * Math.PI / 3;
- var ax = CX + Math.cos(ang)*a.o; 
-  var ay = CY + Math.sin(ang)*a.o;
+var ax = CX + Math.cos(ang)*a.o*esc;
+ var ay = CY + Math.sin(ang)*a.o*esc;
   cx.beginPath();
   cx.arc(ax, ay, 5, 0, Math.PI*2);
   cx.fillStyle = a.c;
