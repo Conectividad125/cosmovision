@@ -91,8 +91,9 @@ for(var i=0; i<ASTROS.length; i++){
   cx.strokeStyle = a.c + '40';
   cx.lineWidth = 1;
   cx.stroke();
-  var ang = a.p === 0 ? 0 : -(2*Math.PI*(t/86400/a.p));
-  var ax = CX + Math.cos(ang)*a.o;
+var _p = a.p > 0 ? a.p : 1e6;
+var ang = a.p === 0 ? 0 : -(2*Math.PI*(t/86400/_p));
+ var ax = CX + Math.cos(ang)*a.o; 
   var ay = CY + Math.sin(ang)*a.o;
   cx.beginPath();
   cx.arc(ax, ay, 5, 0, Math.PI*2);
