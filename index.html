@@ -62,6 +62,7 @@ var ASTROS = [
   {n:'Sol Phoenix', c:'#FF007F', s:'⚫', t:'agujero',  o:530, p:1.0e9},
   {n:'TON 618',     c:'#FFFF00', s:'⚫', t:'agujero',  o:560, p:2.0e10}
 ];
+  var S = { tSec: 0 };
 function resize(){
   cv.width = cv.clientWidth;
   cv.height = cv.clientHeight;
@@ -80,12 +81,27 @@ function draw(){
   cx.fillStyle = '#FFCC00';
   cx.fill();
 
-  for(var i=1; i<=5; i++){
-    cx.beginPath();
-    cx.arc(CX, CY, i*60, 0, Math.PI*2);
-    cx.strokeStyle = 'rgba(0,229,255,.3)';
-    cx.stroke();
-  }
+  var t = S.tSec;
+for(var i=0; i<ASTROS.length; i++){
+  var a = ASTROS[i];
+  if(a.o === 0){ continue; }
+  cx.beginPath();
+  cx.arc(CX, CY, a.o, 0, Math.PI*2);
+  cx.strokeStyle = a.c + '40';
+  cx.lineWidth = 1;
+  cx.stroke();
+  var ang = a.p === 0 ? 0 : -(2*Math.PI*(t/86400/a.p));
+  var ax = CX + Math.cos(ang)*a.o;
+  var ay = CY + Math.sin(ang)*a.o;
+  cx.beginPath();
+  cx.arc(ax, ay, 5, 0, Math.PI*2);
+  cx.fillStyle = a.c;
+  cx.fill();
+  cx.fillStyle = '#E0E0E0';
+  cx.font = '10px monospace';
+  cx.textAlign = 'center';
+  cx.fillText(a.s, ax, ay-8);
+}
 
   requestAnimationFrame(draw);
 }
