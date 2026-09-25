@@ -62,7 +62,8 @@ var ASTROS = [
   {n:'Sol Phoenix', c:'#FF007F', s:'⚫', t:'agujero',  o:530, p:1.0e9},
   {n:'TON 618',     c:'#FFFF00', s:'⚫', t:'agujero',  o:560, p:2.0e10}
 ];
-  var S = { tSec: 0 };
+  var _ep = Date.parse('1962-02-04T14:30:00-05:00');
+var S = { tSec: (Date.now() - _ep)/1000 };
 function resize(){
 cv.width = window.innerWidth;
 cv.height = window.innerHeight;  
@@ -124,7 +125,7 @@ if(val === AUTH_KEY || val2 === 'centrogalactico'){
   }
 });
 
-resize();
+setTimeout(function(){ resize(); }, 500);
 </script>
 </body>
 </html>
