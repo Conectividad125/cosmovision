@@ -64,8 +64,8 @@ var ASTROS = [
 ];
   var S = { tSec: 0 };
 function resize(){
-  cv.width = cv.clientWidth;
-  cv.height = cv.clientHeight;
+cv.width = window.innerWidth;
+cv.height = window.innerHeight;  
 }
 window.addEventListener('resize', resize);
 
